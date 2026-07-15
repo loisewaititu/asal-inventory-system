@@ -1,0 +1,465 @@
+/* General styling (from your previous admin.css/body styles) */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom right, #D2BCA1, #D5B893); /* Akaroa to Tan gradient */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Sidebar styles - Assuming these are mostly from admin.css and are consistent */
+.sidebar {
+    position: fixed;
+    width: 250px;
+    min-height: 100vh;
+    background-color: #25344F; /* Space Cadet */
+    color: #D5B893; /* Tan for general sidebar text */
+    padding: 25px 20px;
+    box-sizing: border-box;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+}
+
+.sidebar h3 {
+    color: #D5B893;
+    border-bottom: 2px solid #617891; /* Slate Gray */
+    padding-bottom: 15px;
+    font-size: 24px;
+    margin-bottom: 30px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    color: #D5B893;
+    padding: 14px 18px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    border-radius: 10px;
+    gap: 15px;
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+
+.sidebar a:hover {
+    background-color: #273F5B; /* Rhino */
+    color: #D5B893;
+    transform: translateX(8px);
+    padding-left: 18px;
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    color: #D5B893;
+    padding: 14px 18px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 10px;
+    gap: 15px;
+    font-size: 17px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    cursor: pointer; /* Indicate it's clickable */
+}
+
+.dropdown-toggle:hover {
+    background-color: #273F5B;
+    color: #D5B893;
+}
+
+.dropdown-toggle.open .fa-caret-down {
+    transform: rotate(180deg);
+}
+
+.dropdown-content {
+    display: none; /* Hidden by default */
+    flex-direction: column; /* Stack dropdown items */
+    background-color: #1a2536; /* Slightly darker than sidebar for dropdown */
+    border-radius: 8px;
+    margin-left: 10px; /* Indent dropdown items */
+    margin-bottom: 8px;
+    overflow: hidden; /* For smooth reveal */
+}
+
+.dropdown-content a {
+    padding: 10px 18px 10px 30px; /* Increased left padding for indentation */
+    font-size: 16px;
+    color: #D5B893;
+    transition: background-color 0.2s ease;
+    border-radius: 0; /* No rounded corners for individual items */
+    margin-bottom: 0; /* No margin between dropdown items */
+}
+
+.dropdown-content a:hover {
+    background-color: #2e4361; /* Darker hover for dropdown items */
+    transform: none; /* No slide effect for dropdown items */
+}
+
+
+/* Main content container */
+.main {
+    flex-grow: 1;
+    margin-left: 250px; /* Adjust for fixed sidebar width */
+    padding: 40px;
+    background: rgba(210, 188, 161, 0.3); /* Akaroa (30% opacity) */
+    box-sizing: border-box;
+    min-height: 100vh;
+}
+
+/* Main heading for the page */
+h2 {
+    color: #25344F; /* Space Cadet */
+    font-size: 42px;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+    border-bottom: 3px solid #A76825; /* Desert accent line */
+    padding-bottom: 10px;
+    display: inline-block;
+    margin-bottom: 35px;
+    margin-left: -10px;
+    padding-left: 10px;
+}
+
+/* Filter Container styles */
+.filter-container {
+    background-color: #ffffff;
+    padding: 20px 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(111, 72, 28, 0.15); /* Lighter Walnut shadow */
+    margin-bottom: 30px; /* Space between filter and first date heading */
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Space between elements */
+}
+
+.filter-container label {
+    font-size: 1.1em;
+    color: #25344F; /* Space Cadet */
+    font-weight: 600;
+}
+
+.filter-container select,
+.filter-container button {
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+.filter-container select {
+    border: 2px solid #D2BCA1; /* Akaroa border */
+    background-color: #fcfcfc;
+    color: #6F4D38; /* Coffee */
+    appearance: none; /* Remove default arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%236F4D38%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13%205.4L146.2%20208.6%2018.8%2074.8c-2.4-2.4-5.6-4.2-9-4.8-3.4-.6-7.2-.2-10.4%201.4-1.2%200-2.4.6-3.6%201.2-1.2.6-2.4%201.2-3.6%202.4-4.2%204.2-6%209.8-6%2015.4s1.8%2011.2%206%2015.4L133.2%20227.6c5.2%205.2%2011.8%207.8%2018.8%207.8s13.6-2.6%2018.8-7.8L287%20101.4c4.2-4.2%206-9.8%206-15.4s-1.8-11.2-6-15.4z%22%2F%3E%3C%2Fsvg%3E');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 12px;
+    cursor: pointer;
+}
+
+.filter-container select:focus {
+    border-color: #A76825; /* Desert on focus */
+    box-shadow: 0 0 0 3px rgba(167, 104, 37, 0.2);
+    outline: none;
+}
+
+.filter-container button {
+    background-color: #A76825; /* Desert for button */
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.filter-container button:hover {
+    background-color: #7F715F; /* Sandstone on hover */
+    box-shadow: 0 2px 8px rgba(167, 104, 37, 0.4);
+}
+
+/* Date Heading for grouped logs */
+.date-heading {
+    font-size: 1.6em;
+    font-weight: 700;
+    color: #25344F; /* Space Cadet */
+    margin-top: 40px; /* Space above each date group */
+    margin-bottom: 20px; /* Space below date heading before table */
+    padding-bottom: 8px;
+    border-bottom: 2px solid #D5B893; /* Tan underline for date */
+    display: inline-block; /* To make border-bottom fit content */
+}
+
+/* Audit Table Container */
+.audit-table-container {
+    overflow-x: auto; /* Use auto instead of scroll unless you always want scrollbars */
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 40px; /* Space after the last table */
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    min-width: 1000px; /* Ensure horizontal scroll if content overflows */
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(111, 72, 28, 0.3); /* Walnut */
+    overflow: hidden;
+    margin-bottom: 30px; /* Space between grouped tables if multiple */
+}
+
+th, td {
+    border: 1px solid #D2BCA1; /* Akaroa */
+    padding: 16px;
+    text-align: left;
+    font-size: 15px;
+    vertical-align: top;
+    color: #6F4D38; /* Coffee */
+}
+
+th {
+    background-color: #25344F; /* Space Cadet */
+    color: #D5B893; /* Tan for header text */
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+th:first-child {
+    border-top-left-radius: 15px;
+}
+th:last-child {
+    border-top-right-radius: 15px;
+}
+
+tr:nth-child(even) {
+    background-color: #D2BCA1; /* Akaroa */
+}
+
+tr:hover {
+    background-color: #D5B893; /* Tan */
+    color: #25344F; /* Space Cadet text on hover */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+tr:hover td {
+    border-color: #A76825; /* Desert border on hover */
+}
+
+/* Specific column widths for audit table */
+td:nth-child(1) { /* Time */
+    min-width: 120px; /* Adjusted slightly */
+    white-space: nowrap;
+}
+td:nth-child(2) { /* User */
+    min-width: 150px; /* Increased width */
+}
+td:nth-child(3) { /* Action Type */
+    min-width: 120px; /* Adjusted slightly */
+}
+td:nth-child(4) { /* Description */
+    min-width: 350px; /* Increased for better readability */
+    max-width: 500px; /* Added max-width */
+    white-space: normal;
+    word-break: break-word;
+}
+td:nth-child(5) { /* Entity Type */
+    min-width: 100px;
+}
+td:nth-child(6) { /* Entity ID */
+    min-width: 80px;
+    text-align: center; /* IDs usually look better centered */
+}
+
+
+/* No Data Message */
+.main p { /* Target p inside main to avoid conflicting with general p */
+    font-size: 20px;
+    color: #6F4D38; /* Coffee */
+    margin-top: 40px;
+    text-align: center;
+    padding: 30px;
+    border: 2px dashed #D5B893; /* Tan dashed border */
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1200px) {
+    .main {
+        padding: 30px;
+    }
+    .filter-container {
+        flex-direction: column; /* Stack filter elements */
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .filter-container select,
+    .filter-container button {
+        width: 100%; /* Full width for selects and buttons */
+        box-sizing: border-box;
+    }
+    .date-heading {
+        font-size: 1.4em;
+    }
+    .audit-table-container th,
+    .audit-table-container td {
+        padding: 12px;
+        font-size: 14px;
+    }
+    td:nth-child(4) {
+        min-width: 300px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .sidebar {
+        width: 80px;
+        padding: 20px 10px;
+    }
+    .sidebar h3 {
+        font-size: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        border-bottom: none;
+        margin-bottom: 20px;
+        justify-content: center;
+    }
+    .sidebar h3 .fas {
+        font-size: 28px;
+        margin-right: 0;
+    }
+    .sidebar a {
+        font-size: 0;
+        padding: 12px 0;
+        justify-content: center;
+        gap: 0;
+    }
+    .sidebar a .fas {
+        font-size: 22px;
+        margin-right: 0;
+    }
+    .main {
+        margin-left: 80px;
+        padding: 20px;
+    }
+    h2 {
+        font-size: 36px;
+    }
+    .audit-table-container table {
+        min-width: 800px;
+    }
+    .audit-table-container th,
+    .audit-table-container td {
+        padding: 10px;
+        font-size: 13px;
+    }
+    td:nth-child(1) {
+        min-width: 100px;
+    }
+    td:nth-child(4) {
+        min-width: 250px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        flex-direction: column;
+    }
+    .sidebar {
+        position: relative;
+        width: 100%;
+        min-height: auto;
+        height: auto;
+        padding: 15px 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    .sidebar h3 {
+        display: none;
+    }
+    .sidebar a, .dropdown-toggle {
+        font-size: 14px;
+        width: auto;
+        padding: 8px 12px;
+        border-radius: 8px;
+        flex-direction: column;
+        gap: 5px;
+        margin-bottom: 0;
+    }
+    .sidebar a .fas, .dropdown-toggle .fas {
+        font-size: 18px;
+        margin-right: 0;
+    }
+    .main {
+        margin-left: 0;
+        padding: 15px;
+    }
+    h2 {
+        font-size: 30px;
+        margin-left: 0;
+        padding-left: 0;
+        display: block;
+        text-align: center;
+    }
+    .filter-container {
+        flex-direction: column;
+        align-items: stretch; /* Stretch items to fill width */
+    }
+    .audit-table-container table {
+        min-width: 600px;
+    }
+    .audit-table-container th,
+    .audit-table-container td {
+        padding: 8px;
+        font-size: 11px;
+    }
+    td:nth-child(1) {
+        min-width: 80px;
+    }
+    td:nth-child(4) {
+        min-width: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 24px;
+    }
+    .filter-container label {
+        font-size: 1em;
+        text-align: center;
+        width: 100%;
+    }
+    .audit-table-container table {
+        min-width: 500px;
+    }
+    .audit-table-container th,
+    .audit-table-container td {
+        padding: 6px;
+        font-size: 10px;
+    }
+    td:nth-child(1) {
+        min-width: 60px;
+    }
+    td:nth-child(4) {
+        min-width: 100px;
+    }
+}

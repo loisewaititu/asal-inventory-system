@@ -1,0 +1,758 @@
+/* General Reset & Body Styles */
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Soft, inviting gradient using Akaroa and Tan from the palettes */
+    background: linear-gradient(to bottom right, #D2BCA1, #D5B893); /* Akaroa to Tan gradient */
+    /* Primary body text color: Coffee, for good readability */
+    color: #6F4D38; /* Coffee */
+    display: flex; /* This is crucial for sidebar and main content layout */
+    min-height: 100vh; /* Ensures body takes full viewport height */
+    overflow-x: hidden; /* Prevent horizontal scroll on the body itself */
+}
+
+/* Sidebar Styles - this is the key section for the scrollbar and fixed position */
+.sidebar {
+    width: 270px; /* Generous width for better readability of links */
+    /* Deep, grounding Space Cadet for the sidebar background */
+    background-color: #25344F; /* Space Cadet */
+    color: #D5B893; /* Tan for general sidebar text, providing warm contrast */
+    padding: 25px 20px; /* More generous padding */
+    box-sizing: border-box;
+    /* This combination of properties is essential for the fixed, scrollable sidebar */
+    position: fixed; /* Keep the sidebar in place while main content scrolls */
+    min-height: 100vh;
+    overflow-y: auto; /* Allow scrolling if content overflows */
+    top: 0;
+    left: 0;
+    /* Stronger, more elegant shadow */
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.4);
+    z-index: 1000; /* Ensure sidebar stays on top */
+    transition: width 0.3s ease; /* Smooth transition for responsive collapse */
+}
+
+/* Custom Scrollbar Styles for the Sidebar */
+.sidebar::-webkit-scrollbar {
+    width: 10px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background: #25344F; /* Space Cadet */
+    border-radius: 5px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: #D5B893; /* Tan */
+    border-radius: 5px;
+    border: 2px solid #25344F; /* Space Cadet */
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+    background-color: #A76825; /* Desert */
+}
+/* Firefox scrollbar styles */
+.sidebar {
+    scrollbar-width: thin;
+    scrollbar-color: #D5B893 #25344F;
+}
+
+.sidebar h3 {
+    font-size: 24px; /* Larger heading for prominence */
+    margin-bottom: 30px; /* More space below */
+    display: flex;
+    align-items: center;
+    gap: 12px; /* More space for icon */
+    /* Subtle border using Slate Gray */
+    border-bottom: 2px solid #617891; /* Slate Gray */
+    padding-bottom: 15px; /* More padding below border */
+    color: #D5B893; /* Tan for the heading itself */
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.sidebar h3 .fas {
+    font-size: 28px; /* Larger icon in header */
+    color: #A76825; /* Desert accent for icon */
+}
+
+/* Sidebar Links */
+.sidebar-link,
+.sidebar a {
+    display: flex;
+    align-items: center;
+    color: #D5B893; /* Tan for links */
+    padding: 14px 18px; /* More padding for a comfortable click area */
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    border-radius: 10px; /* More rounded corners */
+    gap: 15px; /* More space for icon */
+    font-size: 17px; /* Larger font */
+    font-weight: 500;
+    margin-bottom: 8px; /* Space between links */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.sidebar-link .fas,
+.sidebar a .fas {
+    font-size: 20px; /* Larger icons */
+    color: rgba(213, 184, 147, 0.8); /* Slightly transparent Tan for icons */
+}
+
+.sidebar-link:hover,
+.sidebar-link:focus,
+.sidebar a:hover {
+    /* Rhino for a deep blue hover state, contrasting with Tan text */
+    background-color: #273F5B; /* Rhino */
+    color: #D5B893; /* Keep Tan text for consistency on hover */
+    transform: translateX(8px); /* Subtle slide effect */
+    outline: none; /* Remove default focus outline */
+}
+.sidebar-link:hover .fas,
+.sidebar a:hover .fas {
+    color: #A76825; /* Desert accent for icon on hover */
+}
+
+/* Specific Sidebar Link Styles (e.g., "Reassign Equipment") */
+.sidebar a[href="assign_equipment.php"] {
+    background-color: #A76825; /* Desert for this important action */
+    color: white;
+    margin-top: 20px; /* More space above it */
+    padding: 15px 18px;
+    border-radius: 12px;
+    font-weight: 700;
+    box-shadow: 0 4px 10px rgba(167, 104, 37, 0.4); /* Desert shadow */
+}
+
+.sidebar a[href="assign_equipment.php"]:hover {
+    background-color: #6F481C; /* Walnut on hover */
+    color: white;
+    transform: translateY(-2px); /* Lift effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+.sidebar a[href="assign_equipment.php"] .fas {
+    color: white; /* Keep icon white */
+}
+
+
+/* Dropdown Styles */
+.dropdown {
+    margin-bottom: 15px; /* More space for dropdowns */
+    position: relative; /* Needed for absolute positioning of arrow if desired */
+}
+
+.dropdown > .sidebar-link::after {
+    content: " \25BC"; /* Unicode down arrow for better styling */
+    font-size: 10px;
+    margin-left: auto; /* Push arrow to the right */
+    transition: transform 0.3s ease;
+    color: rgba(213, 184, 147, 0.6); /* Lighter Tan for the arrow */
+}
+
+.dropdown.open > .sidebar-link::after { /* Use a JS-toggled class to rotate arrow */
+    transform: rotate(180deg);
+}
+
+.dropdown-content {
+    margin-left: 20px; /* Increased indentation */
+    padding-left: 15px;
+    display: none; /* Controlled by JavaScript */
+    flex-direction: column;
+    border-left: 3px solid rgba(213, 184, 147, 0.4); /* Tan-light border for sub-menu */
+    margin-top: 5px;
+    padding-top: 5px;
+    overflow: hidden; /* Hide overflow during animation */
+}
+
+.dropdown.open .dropdown-content {
+    display: flex; /* Show when 'open' class is applied by JS */
+}
+
+.dropdown-content a {
+    padding: 10px 15px; /* Smaller padding for sub-links */
+    font-size: 16px;
+    font-weight: 400; /* Lighter font weight for sub-links */
+    background-color: transparent; /* Ensure transparent background */
+}
+.dropdown-content a:hover {
+    background-color: rgba(213, 184, 147, 0.1); /* Very light Tan hover for sub-links */
+    transform: translateX(5px);
+    color: #A76825; /* Desert for sub-link hover */
+}
+.dropdown-content a.active {
+    color: #A76825; /* Desert for active sub-link */
+    font-weight: 600;
+}
+
+
+/* Main Content Area */
+.main {
+    /* This margin is crucial to make the main content appear next to the fixed sidebar */
+    margin-left: 270px; /* Match the sidebar width */
+    flex-grow: 1; /* Allows main content to take remaining space */
+    padding: 20px; /* Reduced from 40px for a closer look */
+    /* Light background for the main content area using Akaroa with transparency */
+    background: rgba(210, 188, 161, 0.3); /* Akaroa (30% opacity) for a soft overlay */
+    overflow-x: hidden; /* Prevent horizontal scroll within main content, allowing table to scroll */
+    box-sizing: border-box; /* Include padding in element's total width */
+    min-height: 100vh; /* Ensure it stretches */
+}
+
+h2 { /* Main content heading */
+    /* Strong heading color: Space Cadet */
+    color: #25344F; /* Space Cadet */
+    margin-top: 0;
+    margin-bottom: 35px; /* More space below heading */
+    text-align: left;
+    font-size: 42px; /* Larger, more impactful main heading */
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15); /* Deeper text shadow */
+    border-bottom: 3px solid #A76825; /* Desert accent line */
+    padding-bottom: 10px;
+    display: inline-block; /* Makes border-bottom fit content */
+    margin-left: -10px; /* Adjust for padding/border for left alignment */
+    padding-left: 10px; /* Add padding to the left */
+}
+
+/* Search Form */
+form.search-form {
+    margin-bottom: 30px; /* More space below the form */
+    display: flex; /* Use flexbox for alignment */
+    gap: 15px; /* Space between input and button */
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    background-color: rgba(255, 255, 255, 0.6); /* Slightly transparent white background */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.search-form input[type="text"] { /* Specific style for search input */
+    padding: 14px 18px; /* More padding */
+    flex-grow: 1; /* Allow input to grow */
+    min-width: 200px; /* Minimum width before wrapping */
+    /* Border using Slate Gray */
+    border: 1px solid #617891; /* Slate Gray */
+    border-radius: 8px; /* More rounded */
+    font-size: 17px;
+    color: #25344F; /* Input text color */
+    background-color: #FDFDFD; /* Near white background */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-form input[type="text"]:focus {
+    outline: none;
+    /* Focus highlight using Desert accent */
+    border-color: #A76825; /* Desert */
+    box-shadow: 0 0 0 3px rgba(167, 104, 37, 0.2);
+}
+
+.search-form button { /* Specific style for search button */
+    padding: 14px 30px; /* Larger button padding */
+    /* Background: Desert, a vibrant accent */
+    background-color: #A76825; /* Desert */
+    color: white;
+    border: none;
+    border-radius: 8px; /* More rounded */
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 17px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    flex-shrink: 0; /* Prevent shrinking */
+    margin-top: 0; /* Override default button margin-top from previous CSS if any */
+}
+
+.search-form button:hover {
+    /* Darker Walnut on hover for the search button */
+    background-color: #6F481C; /* Walnut */
+    transform: translateY(-2px);
+    box-shadow: 0 44px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Download Report Button */
+form.download-report {
+    margin-bottom: 40px; /* More space below */
+    text-align: right; /* Align to the right for reports */
+    background-color: transparent; /* No background for this form */
+    padding: 0;
+    box-shadow: none;
+}
+
+form.download-report button {
+    /* Download button: Caput Mortuum, with Tan text */
+    background-color: #632024; /* Caput Mortuum */
+    color: #D5B893; /* Tan */
+    border: none;
+    padding: 12px 25px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 0; /* Reset default button margin-top */
+}
+
+form.download-report button:hover {
+    background-color: #A76825; /* Desert on hover for a pop of color */
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Table Container for Horizontal Scroll */
+.table-container {
+    overflow-x: scroll; /* Changed to 'scroll' to force visibility */
+    -webkit-overflow-scrolling: touch; /* For smooth scrolling on iOS */
+    margin-top: 20px;
+    margin-bottom: 40px; /* Space below the table */
+}
+
+/* Table Styles */
+table {
+    width: 100%;
+    min-width: 1500px; /* Set a minimum width for the table to force horizontal scroll */
+    border-collapse: separate; /* Use separate to allow border-radius on cells */
+    border-spacing: 0; /* Remove default cell spacing */
+    background: #ffffff;
+    border-radius: 15px; /* Overall table rounded corners */
+    /* Richer shadow using Walnut */
+    box-shadow: 0 8px 30px rgba(111, 72, 28, 0.3);
+    /* REMOVED: overflow: hidden; from here. It was conflicting with table-container's scroll. */
+}
+
+th, td {
+    /* Subtle border using Akaroa for soft separation */
+    border: 1px solid #D2BCA1; /* Akaroa */
+    padding: 16px; /* More padding in cells */
+    text-align: center;
+    font-size: 15px;
+    vertical-align: middle; /* Center content vertically */
+    color: #6F4D38; /* Coffee for cell text */
+}
+
+th {
+    /* Deep Caput Mortuum for table headers */
+    background-color: #632024; /* Caput Mortuum */
+    color: #D5B893; /* Tan for header text */
+    position: sticky;
+    top: 0; /* Makes header sticky within its scrollable parent (if table-container has max-height) */
+    z-index: 10; /* Higher z-index for sticky header */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* First and Last Header Cells for rounded corners */
+th:first-child {
+    border-top-left-radius: 15px;
+}
+th:last-child {
+    border-top-right-radius: 15px;
+}
+
+tr:nth-child(even) {
+    /* Light Akaroa for even rows */
+    background-color: #D2BCA1; /* Akaroa */
+}
+
+tr:hover {
+    /* Tan for row hover effect */
+    background-color: #D5B893; /* Tan */
+    color: #25344F; /* Space Cadet text on hover for contrast */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+tr:hover td {
+    border-color: #A76825; /* Desert border on hover for subtle pop */
+}
+
+
+/* Action Buttons inside Table */
+td a {
+    display: inline-flex; /* Use flex for icon/text alignment if needed */
+    align-items: center;
+    justify-content: center;
+    padding: 8px 14px; /* More padding for small buttons */
+    margin: 4px; /* Slightly more margin */
+    border-radius: 8px; /* More rounded */
+    text-decoration: none;
+    font-size: 14px;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    font-weight: 600;
+    white-space: nowrap; /* Prevent text wrapping inside buttons */
+}
+
+td a i {
+    margin-right: 6px; /* Space for icons */
+    font-size: 16px;
+}
+
+td a[href*="assign_equipment"] {
+    /* Assign button: Desert for primary action, with white text */
+    background-color: #A76825; /* Desert */
+    color: white;
+}
+td a[href*="assign_equipment"]:hover {
+    background-color: #6F481C; /* Walnut on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+td a[href*="equipment_history"] {
+    /* History button: Rhino, with Tan text */
+    background-color: #273F5B; /* Rhino */
+    color: #D5B893; /* Tan */
+}
+td a[href*="equipment_history"]:hover {
+    background-color: #617891; /* Slate Gray on hover */
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+td a[href*="edit_device"] {
+    /* Edit button: Sandstone, with light text */
+    background-color: #7F715F; /* Sandstone */
+    color: #F8F8F8;
+}
+td a[href*="edit_device"]:hover {
+    background-color: #6F481C; /* Walnut on hover */
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* NEW: Dispose Button Style */
+td a.dispose-btn { /* Assuming you add a class="dispose-btn" to your dispose links */
+    background-color: #25344F; /* Space Cadet (navy blue) */
+    color: white;
+}
+
+td a.dispose-btn:hover {
+    background-color: #273F5B; /* Rhino (slightly lighter blue) on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+/* "Assigned To" Column Styling */
+td:nth-child(16) { /* Assigned To column */
+    font-weight: 600;
+    color: #25344F; /* Space Cadet for assigned names */
+}
+td:nth-child(15) { /* State column */
+    font-weight: 600;
+    color: #632024; /* Caput Mortuum for states */
+}
+td:nth-child(14) { /* UPS Connected column */
+    font-weight: 600;
+    color: #273F5B; /* Rhino for UPS "Yes" */
+}
+
+
+/* No Data Message */
+p { /* General paragraph style, adjust if you want a specific class for "no results found" */
+    font-size: 20px;
+    color: #6F4D38; /* Coffee */
+    margin-top: 40px;
+    text-align: center;
+    padding: 30px;
+    border: 2px dashed #D5B893; /* Tan dashed border */
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Responsive Tweaks */
+@media screen and (max-width: 1200px) {
+    /* On wider screens, maintain layout but allow slight shrinking */
+    .main {
+        margin-left: 270px; /* Keep fixed sidebar space */
+        padding: 20px; /* Consistent padding */
+    }
+    table {
+        font-size: 14px;
+    }
+    th, td {
+        padding: 14px;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .sidebar {
+        width: 80px; /* Collapsed sidebar */
+        padding: 20px 10px;
+    }
+    .sidebar h3 {
+        font-size: 0; /* Hide text */
+        overflow: hidden;
+        white-space: nowrap;
+        border-bottom: none; /* Remove border when collapsed */
+        margin-bottom: 20px;
+        justify-content: center; /* Center icon */
+    }
+    .sidebar h3 .fas {
+        font-size: 28px; /* Larger icon for visibility */
+        margin-right: 0;
+    }
+    .sidebar-link,
+    .sidebar a {
+        padding: 12px 0; /* Adjust padding for icons only */
+        justify-content: center; /* Center content */
+        gap: 0;
+        font-size: 0; /* Hide link text */
+        position: relative;
+    }
+    .sidebar-link .fas,
+    .sidebar a .fas {
+        font-size: 22px; /* Adjust icon size */
+        margin-right: 0;
+    }
+    .sidebar-link::after { /* Hide dropdown arrow */
+        content: none !important;
+    }
+    .dropdown-content {
+        display: none; /* Hide dropdown content when collapsed */
+    }
+    .sidebar a[href="assign_equipment.php"] {
+        font-size: 0; /* Hide text */
+        padding: 15px 0; /* Adjust padding */
+        justify-content: center;
+    }
+    .sidebar a[href="assign_equipment.php"] .fas {
+        font-size: 24px; /* Larger icon */
+    }
+
+    .main {
+        margin-left: 80px; /* Adjust margin-left for collapsed sidebar */
+        padding: 20px; /* Consistent padding */
+    }
+
+    h2 {
+        font-size: 36px;
+        letter-spacing: 1.5px;
+    }
+
+    .search-form input[type="text"] {
+        width: calc(100% - 100px); /* Adjust width to fit with button */
+        max-width: 100%;
+    }
+    .search-form button {
+        padding: 14px 20px; /* Slightly less padding */
+    }
+
+    table {
+        font-size: 13px;
+    }
+    th, td {
+        padding: 12px;
+    }
+    td a {
+        padding: 6px 10px;
+        font-size: 13px;
+        margin: 3px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        flex-direction: column; /* Stack sidebar and main content */
+    }
+    .sidebar {
+        position: relative; /* Allow sidebar to flow */
+        width: 100%;
+        min-height: auto;
+        height: auto;
+        padding: 15px 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: row; /* Arrange items horizontally */
+        justify-content: space-around;
+        flex-wrap: wrap; /* Allow wrapping of sidebar links */
+    }
+    .sidebar h3 {
+        display: none; /* Hide header completely on mobile */
+    }
+    .sidebar-link,
+    .sidebar a {
+        font-size: 14px; /* Smaller font for text */
+        width: auto;
+        padding: 8px 12px; /* Adjusted padding */
+        border-radius: 8px;
+        flex-direction: column; /* Stack icon and text */
+        gap: 5px;
+        margin-bottom: 0;
+    }
+    .sidebar-link .fas,
+    .sidebar a .fas {
+        font-size: 18px; /* Slightly smaller icons */
+        margin-right: 0;
+    }
+    .sidebar-link::after {
+        content: none; /* Hide dropdown arrow on mobile nav */
+    }
+    .dropdown-content {
+        /* On small screens, dropdown content should be handled via JS for a modal or similar */
+        display: none; /* Keep hidden on small screen unless JS shows as overlay */
+    }
+    .main {
+        margin-left: 0; /* Remove margin */
+        padding: 15px; /* Reduced for smaller screens */
+        min-height: auto; /* Allow height to adjust */
+    }
+
+    h2 {
+        font-size: 30px;
+        padding-bottom: 8px;
+        margin-left: 0;
+        padding-left: 0;
+        display: block; /* No longer inline-block */
+        border-bottom: 2px solid #A76825;
+    }
+
+    .search-form {
+        flex-direction: column; /* Stack search elements vertically */
+        align-items: stretch; /* Stretch to full width */
+        padding: 15px;
+    }
+    .search-form input[type="text"] {
+        width: 100%;
+        max-width: 100%;
+    }
+    .search-form button {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 10px;
+    }
+
+    form.download-report {
+        text-align: center; /* Center download button on small screens */
+    }
+    form.download-report button {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+/* Styles specific to the Audit Trail Page (these should ideally be in audit.css if separate) */
+.json-cell {
+    max-width: 250px; /* Limit width of JSON cells */
+    white-space: pre-wrap; /* Allow long text to wrap */
+    word-wrap: break-word; /* Break long words */
+    font-family: monospace; /* Monospace font for JSON */
+    font-size: 0.85em; /* Smaller font for detail */
+    text-align: left; /* Align text left for readability */
+    vertical-align: top; /* Align to top */
+    padding: 8px; /* Slightly less padding */
+}
+
+.json-cell pre {
+    margin: 0;
+    padding: 0;
+    white-space: pre-wrap;
+    word-break: break-all; /* Ensures long strings break */
+    background-color: #f9f9f9; /* Light background for code blocks */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px;
+    max-height: 150px; /* Limit height */
+    overflow-y: auto; /* Add scroll if too tall */
+}
+
+/* Adjust filter form for audit trail */
+.main .search-form select,
+.main .search-form input[type="date"] {
+    padding: 12px 15px;
+    border: 1px solid #617891;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #25344F;
+    background-color: #FDFDFD;
+    flex-grow: 1;
+    min-width: 150px; /* Give them a reasonable min-width */
+}
+
+.main .search-form button {
+    padding: 12px 20px;
+}
+
+/* Ensure the main h2 for audit trail is consistent */
+.main h2 .fas {
+    margin-right: 10px; /* Space between icon and text */
+}
+
+/* Responsive adjustments for audit trail */
+@media screen and (max-width: 992px) {
+    .json-cell {
+        max-width: 150px; /* Even smaller on smaller screens */
+    }
+}
+@media screen and (max-width: 768px) {
+    .json-cell {
+        max-width: 100px; /* Very small on mobile, might need more specific handling */
+        font-size: 0.7em;
+        padding: 5px;
+    }
+    .json-cell pre {
+        max-height: 100px;
+    }
+    .main .search-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .main .search-form select,
+    .main .search-form input[type="date"],
+    .main .search-form input[type="text"] {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    .main .search-form button {
+        width: 100%;
+    }
+}
+    table {
+        min-width: 900px;
+    }
+    th, td {
+        min-width: 120px;
+        padding: 10px;
+        font-size: 12px;
+    }
+
+    td a {
+        padding: 5px 8px;
+        font-size: 11px;
+        margin: 2px;
+    }
+
+    /* Adjust specific column widths if content is too wide */
+    td:nth-child(1), /* Type */
+    td:nth-child(2), /* Date */
+    td:nth-child(15), /* State */
+    td:nth-child(16) /* Assigned */ {
+        min-width: 90px;
+    }
+    td:nth-child(9), /* Memory */
+    td:nth-child(10), /* Processor */
+    td:nth-child(11), /* OS */
+    td:nth-child(12), /* Office */
+    td:nth-child(13), /* Hard Disk */
+    td:nth-child(17) { /* Desktop Type */
+        min-width: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 24px;
+    }
+    th, td {
+        min-width: 90px;
+        padding: 6px;
+        font-size: 10px;
+    }
+    td a {
+        padding: 4px 6px;
+        font-size: 10px;
+    }
+}

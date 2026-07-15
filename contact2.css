@@ -1,0 +1,238 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Main background: A soft gradient from Akaroa to Tan */
+    background: linear-gradient(to bottom right, #D2BCA1, #D5B893);
+    /* Primary body text color: Coffee, for good readability */
+    color: #6F4D38;
+    display: flex; /* Use flexbox to center content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    min-height: 100vh; /* Ensure it takes full viewport height */
+    padding: 20px; /* Add some padding around the edges */
+    box-sizing: border-box; /* Include padding in the element's total width and height */
+}
+
+.container {
+    width: 100%; /* Make it responsive */
+    max-width: 700px; /* Wider container for more substantial feel */
+    margin: 40px auto; /* Margin for spacing, flexbox will also center */
+    /* Container background: Akaroa with slight transparency for depth */
+    background-color: rgba(210, 188, 161, 0.95); /* Akaroa (95% opacity) */
+    padding: 50px; /* More generous padding inside */
+    border-radius: 20px; /* More rounded corners for a softer look */
+    /* Elegant shadow using Walnut */
+    box-shadow: 0 15px 35px rgba(111, 72, 28, 0.4); /* Deeper, richer shadow */
+    border: 1px solid rgba(111, 77, 56, 0.1); /* Subtle Coffee border */
+    box-sizing: border-box; /* Ensures padding and border are included in the total width */
+}
+
+h1, h2 {
+    /* Heading color: Space Cadet, strong and grounding */
+    color: #25344F;
+    text-align: center;
+    margin-bottom: 15px; /* More space below headings */
+    font-size: 38px; /* Larger main heading */
+    letter-spacing: 1.5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+}
+
+h2 {
+    font-size: 28px; /* Slightly smaller for sub-headings */
+    margin-top: 30px;
+}
+
+p {
+    text-align: center;
+    margin-bottom: 30px; /* More space below paragraphs */
+    font-size: 18px;
+    color: #6F4D38; /* Coffee for paragraph text */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Add consistent spacing between form elements */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+textarea {
+    padding: 15px; /* More padding for input fields */
+    margin-bottom: 0; /* Gap handles spacing */
+    /* Border: Slate Gray, a soft blue */
+    border: 1px solid #617891;
+    border-radius: 10px; /* More rounded inputs */
+    font-size: 17px;
+    width: 100%;
+    box-sizing: border-box;
+    /* Background for inputs: light cream/near white */
+    background-color: #FDFDFD;
+    color: #25344F; /* Input text color: Space Cadet */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="tel"]:focus,
+textarea:focus {
+    outline: none;
+    /* Focus highlight with Desert accent color */
+    border-color: #A76825;
+    box-shadow: 0 0 0 4px rgba(167, 104, 37, 0.2); /* Desert-colored glow */
+    background-color: #FFFFFF; /* Pure white on focus */
+}
+
+textarea {
+    resize: vertical;
+    min-height: 120px; /* Good starting height for textarea */
+}
+
+button {
+    /* Button background: Desert, vibrant accent color */
+    background-color: #A76825;
+    color: #fff;
+    border: none;
+    padding: 18px; /* Larger button padding */
+    font-size: 20px; /* Larger font size */
+    border-radius: 10px; /* More rounded button */
+    cursor: pointer;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-top: 20px; /* Space above button */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+button:hover {
+    /* Button hover: Walnut, a rich dark brown */
+    background-color: #6F481C;
+    transform: translateY(-3px); /* More pronounced lift */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.success {
+    /* Success message: Lightest Akaroa background with Sandstone text/border */
+    background-color: rgba(210, 188, 161, 0.2); /* Very light Akaroa */
+    color: #7F715F; /* Sandstone for text */
+    border-left: 5px solid #7F715F; /* Sandstone for border */
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.error {
+    /* Error message: Lightest Caput Mortuum background with Caput Mortuum text/border */
+    background-color: rgba(99, 32, 36, 0.1); /* Very light Caput Mortuum */
+    color: #632024; /* Caput Mortuum for text */
+    border-left: 5px solid #632024; /* Caput Mortuum for border */
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.contact-info {
+    margin-top: 50px; /* More space above contact info */
+    padding-top: 30px; /* More padding above border */
+    /* Border top: dashed Slate Gray */
+    border-top: 2px dashed #617891;
+    text-align: center; /* Center the contact info block */
+}
+
+.contact-info p {
+    margin: 10px 0; /* More space between contact lines */
+    font-size: 17px;
+    color: #6F4D38; /* Coffee for text */
+}
+
+a {
+    /* Link color: Rhino, a strong blue */
+    color: #273F5B;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+    /* Link hover: Tan, for a warm contrast */
+    color: #D5B893;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    body {
+        padding: 15px; /* Less body padding on smaller screens */
+    }
+
+    .container {
+        padding: 30px; /* Reduced container padding */
+        border-radius: 15px;
+    }
+
+    h1 {
+        font-size: 32px;
+    }
+    h2 {
+        font-size: 24px;
+    }
+    p {
+        font-size: 16px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+        padding: 12px;
+        font-size: 16px;
+    }
+
+    button {
+        padding: 15px;
+        font-size: 18px;
+    }
+
+    .contact-info {
+        margin-top: 40px;
+        padding-top: 25px;
+    }
+
+    .contact-info p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    .container {
+        padding: 20px;
+        margin: 20px auto;
+    }
+    h1 {
+        font-size: 28px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    p {
+        font-size: 15px;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+        padding: 10px;
+        font-size: 15px;
+    }
+    button {
+        padding: 12px;
+        font-size: 16px;
+    }
+}

@@ -1,0 +1,44 @@
+# ===============================
+# OS / System Files
+# ===============================
+AppData/
+Application Data/
+Local Settings/
+Thumbs.db
+.DS_Store
+*.lnk
+
+# ===============================
+# Temporary / Cache Files
+# ===============================
+*.tmp
+*.log
+*.bak
+*.swp
+
+# ===============================
+# IDE / Editor Config
+# ===============================
+.vscode/
+.idea/
+.cursor/
+.trae/
+.trae-aicc/
+
+# ===============================
+# Dependencies
+# ===============================
+node_modules/
+vendor/
+
+# ===============================
+# Other
+# ===============================
+# Ignore zip or generated files
+*.zip
+*.tar
+*.tar.gz
+*.rar
+
+# Ignore pitch deck and other build outputs if generated
+asals_pitch_deck/

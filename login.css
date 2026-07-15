@@ -1,0 +1,109 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #D2BCA1 0%, #7F715F 100%);
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 40px;
+    box-sizing: border-box;
+}
+
+
+
+h1 {
+    font-size: 48px;
+    color: #273F5B;
+    margin: 0 0 5px 0;
+    text-align: center;
+}
+
+.subtitle {
+    font-size: 18px;
+    color: #7F715F;
+    margin: 0 0 25px 0;
+    text-align: center;
+}
+
+.login-form {
+    background-color: #FFFFFF;
+    padding: 40px 50px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    max-width: 400px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.login-form label {
+    display: block;
+    text-align: left;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #6F481C; /* Walnut */
+    font-size: 15px;
+}
+
+.login-form input {
+    width: 100%;
+    padding: 14px;
+    margin-bottom: 18px;
+    border: 1px solid #273F5B; /* Rhino border */
+    border-radius: 10px;
+    outline: none;
+    font-size: 16px;
+    background-color: rgba(210, 188, 161, 0.1); /* Akaroa hint */
+    color: #273F5B; /* Rhino text */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-form input:focus {
+    border-color: #A76825; /* Desert for active focus */
+    box-shadow: 0 0 0 4px rgba(167, 104, 37, 0.2);
+    background-color: white;
+}
+
+.login-form button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(45deg, #A76825, #6F481C); /* Desert to Walnut gradient */
+    color: #FFFFFF;
+    border: none;
+    border-radius: 10px;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(167, 104, 37, 0.4); /* Desert glow */
+}
+
+.login-form button:hover {
+    background: linear-gradient(45deg, #6F481C, #A76825);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(111, 72, 28, 0.6); /* Walnut glow */
+}
+
+.message {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 14px;
+    text-align: center;
+}
+
+.error-message {
+    background-color: rgba(167, 104, 37, 0.1);
+    color: #A76825;
+    border: 1px solid rgba(167, 104, 37, 0.4);
+}
+
+.info-message {
+    background-color: rgba(39, 63, 91, 0.1);
+    color: #273F5B;
+    border: 1px solid rgba(39, 63, 91, 0.4);
+}
+

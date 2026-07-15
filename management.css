@@ -1,0 +1,140 @@
+body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        /* Replaced cream background with a subtle Akaroa background */
+        background-color: #D2BCA1; /* Akaroa */
+        margin: 0;
+        padding: 40px; /* Increased padding for better spacing */
+        /* Replaced dark brown with Coffee for general text */
+        color: #6F4D38; /* Coffee */
+    }
+
+    h2 {
+        /* Replaced Coffee brown with Space Cadet for a strong heading */
+        color: #25344F; /* Space Cadet */
+        text-align: center;
+        margin-bottom: 35px; /* More spacing below heading */
+        font-size: 38px; /* Consistent large heading size */
+        letter-spacing: 1px;
+    }
+
+    table {
+        width: 95%; /* Slightly wider table */
+        margin: 0 auto;
+        border-collapse: collapse;
+        /* Replaced soft coffee shadow with a richer Walnut shadow */
+        box-shadow: 0 8px 30px rgba(111, 72, 28, 0.25); /* Walnut shadow */
+        background-color: white; /* Clean white background for table content */
+        border-radius: 12px;
+        overflow: hidden;
+    }
+
+    th, td {
+        padding: 18px 22px; /* More generous padding for table cells */
+        text-align: left;
+        /* Replaced subtle border with Akaroa for soft separation */
+        border-bottom: 1px solid #D2BCA1; /* Akaroa */
+    }
+
+    th {
+        /* Replaced Brown with Caput Mortuum for strong table headers */
+        background-color: #632024; /* Caput Mortuum */
+        /* Replaced white with Tan for header text */
+        color: #D5B893; /* Tan */
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    
+    /* Rounded corners for table headers */
+    th:first-child {
+        border-top-left-radius: 12px;
+    }
+    th:last-child {
+        border-top-right-radius: 12px;
+    }
+
+    tr:nth-child(even) {
+        /* Use a very light, transparent Akaroa for even rows */
+        background-color: rgba(210, 188, 161, 0.2); /* Akaroa (20% opacity) */
+    }
+
+    tr:hover {
+        /* Replaced light tan/cream hover with Tan for a prominent hover effect */
+        background-color: #D5B893; /* Tan */
+        /* Replaced Coffee for hover text, ensuring good contrast */
+        color: #25344F; /* Space Cadet */
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    tr:hover td {
+        /* Add a subtle Desert border on hover for more dynamism */
+        border-color: #A76825; /* Desert */
+    }
+
+    .btn {
+        /* Replaced Coffee brown with Desert for primary button action */
+        background-color: #A76825; /* Desert */
+        /* Replaced rgb(233, 209, 209) with white for better contrast */
+        color: white;
+        border: none;
+        padding: 10px 18px; /* More padding for buttons */
+        border-radius: 8px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 15px; /* Slightly larger font for buttons */
+        transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        display: inline-flex; /* Use flex for potential icon alignment */
+        align-items: center;
+        gap: 5px; /* Space for icon if present */
+    }
+
+    .btn:hover {
+        /* Replaced darker coffee with Walnut for a rich hover effect */
+        background-color: #6F481C; /* Walnut */
+        transform: translateY(-2px); /* Slight lift effect */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+    }
+
+    /* Responsive Adjustments */
+    @media screen and (max-width: 768px) {
+        body {
+            padding: 20px;
+        }
+        h2 {
+            font-size: 32px;
+            margin-bottom: 25px;
+        }
+        table {
+            width: 100%;
+            border-radius: 8px;
+        }
+        th, td {
+            padding: 14px 16px;
+            font-size: 14px;
+        }
+        .btn {
+            padding: 8px 14px;
+            font-size: 14px;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        body {
+            padding: 15px;
+        }
+        h2 {
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+        table {
+            border-radius: 6px;
+        }
+        th, td {
+            padding: 10px 12px;
+            font-size: 12px;
+        }
+        .btn {
+            padding: 6px 10px;
+            font-size: 12px;
+            border-radius: 6px;
+        }
+    }

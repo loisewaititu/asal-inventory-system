@@ -1,0 +1,126 @@
+body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        /* Replaced coffee to brown gradient with Akaroa to Tan for a warm and inviting background */
+        background: linear-gradient(135deg, #D2BCA1, #D5B893); /* Akaroa, Tan */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .container {
+        background-color: white; /* Clean white background for the container */
+        padding: 40px 50px; /* More generous padding */
+        border-radius: 15px; /* Consistent border-radius */
+        /* Replaced warm brown shadow with a rich Walnut shadow */
+        box-shadow: 0 10px 30px rgba(111, 72, 28, 0.3); /* Walnut shadow */
+        max-width: 450px; /* Slightly increased max-width */
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box; /* Include padding in width */
+    }
+
+    h2 {
+        /* Replaced coffee with Space Cadet for a strong, clear heading */
+        color: #25344F; /* Space Cadet */
+        margin-bottom: 25px;
+        font-size: 32px; /* Consistent heading size */
+    }
+
+    input[type="password"] {
+        width: calc(100% - 24px); /* Account for padding */
+        padding: 12px;
+        margin-bottom: 20px;
+        /* Replaced #8d6e63 border with Slate Gray for a crisp, modern border */
+        border: 1px solid #617891; /* Slate Gray */
+        border-radius: 8px; /* Consistent rounded input fields */
+        font-size: 16px;
+        /* Replaced #fdf6e3 with a very light Akaroa for input background */
+        background-color: rgba(210, 188, 161, 0.1); /* Light Akaroa */
+        /* Replaced #3e2723 with Coffee for input text color */
+        color: #6F4D38; /* Coffee */
+        outline: none;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        box-sizing: border-box; /* Crucial for width: 100% with padding */
+    }
+
+    input[type="password"]:focus {
+        /* Focus highlight using Desert accent */
+        border-color: #A76825; /* Desert */
+        box-shadow: 0 0 0 3px rgba(167, 104, 37, 0.2); /* Desert shadow for focus */
+    }
+
+    button {
+        /* Replaced bistre with Desert for a vibrant call to action */
+        background-color: #A76825; /* Desert */
+        color: white; /* White text on button */
+        border: none;
+        padding: 14px 25px; /* More generous padding */
+        font-size: 17px; /* Slightly larger font size */
+        border-radius: 8px; /* Consistent rounded button */
+        cursor: pointer;
+        font-weight: bold; /* Make button text bold */
+        transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+        display: block; /* Make button take full width to center easier */
+        width: 100%;
+        max-width: 250px; /* Set a max-width for the button */
+        margin: 20px auto 0 auto; /* Center the button */
+    }
+
+    button:hover {
+        /* Replaced #3e2723 with Walnut for a rich hover effect */
+        background-color: #6F481C; /* Walnut */
+        transform: translateY(-2px); /* Slight lift effect */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+    }
+
+    p {
+        font-weight: bold;
+        margin-top: 20px; /* More space above paragraph */
+        margin-bottom: 15px;
+        /* Replaced #4e342e with Coffee for paragraph text */
+        color: #6F4D38; /* Coffee */
+        font-size: 15px;
+    }
+
+    a {
+        /* Replaced #5d4037 with Space Cadet for a noticeable link color */
+        color: #25344F; /* Space Cadet */
+        text-decoration: none;
+        font-weight: bold;
+        transition: color 0.3s ease;
+    }
+
+    a:hover {
+        /* Replaced #3e2723 with Caput Mortuum for a strong hover effect */
+        color: #632024; /* Caput Mortuum */
+    }
+
+    /* Responsive adjustments */
+    @media screen and (max-width: 480px) {
+        .container {
+            padding: 25px 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(111, 72, 28, 0.2); /* Lighter shadow on small screens */
+        }
+        h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+        input[type="password"] {
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+        button {
+            padding: 12px 20px;
+            font-size: 16px;
+            max-width: 100%; /* Button takes full width on small screens */
+            margin-top: 15px;
+        }
+        p {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+    }

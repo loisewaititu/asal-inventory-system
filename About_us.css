@@ -1,0 +1,352 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Gentle gradient from Akaroa to Tan for a soft, inviting background */
+    background: linear-gradient(to bottom right, #D2BCA1, #D5B893);
+    /* Coffee for primary text, good readability */
+    color: #6F4D38;
+    line-height: 1.7; /* Improved line spacing for readability */
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Navbar */
+.navbar {
+    /* Deep blue gradient for a sophisticated header */
+    background: linear-gradient(to right, #25344F, #273F5B); /* Space Cadet to Rhino */
+    padding: 18px 30px; /* More generous padding */
+    color: white;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25); /* Stronger, more elegant shadow */
+    position: sticky; /* Make navbar sticky */
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it stays on top */
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1300px; /* Slightly wider container */
+    margin: auto;
+}
+
+.logo {
+    font-size: 26px; /* Larger, more prominent logo */
+    font-weight: bold;
+    color: #D5B893; /* Tan for logo, contrasting with blue */
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px; /* Increased gap between links */
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li a {
+    /* Tan for navigation links */
+    color: #D5B893;
+    text-decoration: none;
+    font-weight: 600; /* Slightly bolder */
+    font-size: 17px;
+    transition: all 0.3s ease;
+    position: relative; /* For underline animation */
+}
+
+.nav-links li a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    bottom: -5px;
+    left: 0;
+    /* Desert for active/hover underline */
+    background-color: #A76825;
+    transition: width 0.3s ease-out;
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+    width: 100%;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+    color: #A76825; /* Desert for hover/active text */
+    /* text-decoration: none; removed to use custom underline */
+}
+
+/* Header */
+header {
+    /* Using a gradient that complements the navbar for a cohesive look */
+    background: linear-gradient(135deg, #273F5B, #617891); /* Rhino to Slate Gray */
+    color: white;
+    padding: 60px 20px; /* More vertical padding for a grander feel */
+    text-align: center;
+    box-shadow: inset 0 -5px 15px rgba(0, 0, 0, 0.1); /* Subtle inner shadow */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 48px; /* Larger, more impactful heading */
+    color: #D5B893; /* Tan for header text */
+    letter-spacing: 2px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3); /* Deeper text shadow */
+}
+
+header p {
+    font-size: 20px;
+    margin-top: 15px;
+    color: #D2BCA1; /* Akaroa for header paragraph */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Content */
+.content {
+    padding: 60px 40px; /* Increased padding */
+    max-width: 1300px; /* Consistent with nav-container */
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white for content sections */
+    border-radius: 15px; /* Rounded corners for the entire content block */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Soft, elegant shadow */
+    margin-top: -30px; /* Overlap with header for a sleek transition */
+    position: relative;
+    z-index: 10;
+}
+
+.section {
+    margin-bottom: 50px; /* More space between sections */
+    padding: 20px 0; /* Internal padding for sections */
+}
+
+.section:not(:last-child) {
+    border-bottom: 1px dashed rgba(111, 77, 56, 0.3); /* Subtle dashed separator */
+    padding-bottom: 40px;
+}
+
+.section h2 {
+    /* Space Cadet for section headings */
+    color: #25344F;
+    margin-bottom: 20px;
+    font-size: 34px; /* Larger section titles */
+    border-bottom: 3px solid #A76825; /* Desert for a strong, vibrant underline */
+    padding-bottom: 10px;
+    display: inline-block; /* Makes border-bottom fit content */
+    margin-left: -10px; /* Adjust for padding/border */
+    padding-left: 10px; /* Add padding to the left */
+    font-weight: 700;
+    letter-spacing: 0.8px;
+}
+
+.section p,
+.section a {
+    line-height: 1.8; /* Even better readability */
+    /* Coffee for general paragraph text */
+    color: #6F4D38;
+    font-size: 17px;
+}
+
+.section a {
+    color: #A76825; /* Desert for links within text */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.section a:hover {
+    color: #632024; /* Caput Mortuum on hover for strong contrast */
+    text-decoration: underline;
+}
+
+.values-list,
+.goals-list {
+    list-style: none;
+    padding-left: 0;
+    display: grid; /* Use grid for list items */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive columns */
+    gap: 20px; /* Space between list items */
+}
+
+.values-list li,
+.goals-list li {
+    /* Akaroa for list item background, light and inviting */
+    background: #D2BCA1;
+    margin-bottom: 0; /* Grid handles spacing */
+    padding: 20px 25px;
+    border-left: 6px solid #6F481C; /* Walnut for a rich, strong left border */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* More pronounced shadow */
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #4e342e; /* Coffee for text in list items */
+    font-weight: 500;
+}
+
+.values-list li:hover,
+.goals-list li:hover {
+    transform: translateY(-5px) scale(1.01); /* Lift and slight scale on hover */
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+    background-color: #D5B893; /* Tan on hover */
+}
+
+/* Leadership Section */
+.leadership {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px; /* Increased gap */
+    justify-content: center; /* Center leadership cards */
+}
+
+.leader {
+    /* Sandstone for leader card background, warm and natural */
+    background: #7F715F;
+    padding: 25px;
+    flex: 1 1 280px; /* Adjusted base width for better responsiveness */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* Clearer shadow */
+    border-radius: 15px; /* More rounded */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+    color: #F8F8F8; /* Light text for readability on Sandstone */
+}
+
+.leader:hover {
+    transform: translateY(-8px); /* More pronounced lift */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25); /* Stronger shadow */
+    background-color: #6F481C; /* Walnut on hover for depth */
+}
+
+.leader h3 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    /* Tan for leader name */
+    color: #D5B893;
+    font-size: 24px;
+    letter-spacing: 0.5px;
+}
+
+.leader p {
+    font-size: 16px;
+    color: #D2BCA1; /* Akaroa for leader role/description */
+}
+
+/* Footer */
+footer {
+    /* Space Cadet for a strong, foundational footer */
+    background: #25344F;
+    color: white;
+    text-align: center;
+    padding: 30px 20px; /* More padding */
+    margin-top: 60px; /* More space above footer */
+    font-size: 15px;
+    letter-spacing: 0.5px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .nav-container {
+        flex-direction: column; /* Stack logo and nav links */
+        gap: 15px;
+    }
+
+    .nav-links {
+        gap: 20px; /* Slightly reduced gap for horizontal links */
+    }
+
+    header h1 {
+        font-size: 42px;
+    }
+
+    .content {
+        padding: 40px 25px;
+    }
+
+    .section h2 {
+        font-size: 30px;
+    }
+
+    .values-list,
+    .goals-list {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Adjust min for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 15px 15px;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .nav-links {
+        flex-direction: column; /* Stack nav links vertically */
+        align-items: center;
+        gap: 10px;
+    }
+
+    .nav-links li a {
+        font-size: 16px;
+    }
+
+    header {
+        padding: 40px 15px;
+    }
+
+    header h1 {
+        font-size: 36px;
+    }
+
+    header p {
+        font-size: 17px;
+    }
+
+    .content {
+        padding: 30px 15px;
+    }
+
+    .section h2 {
+        font-size: 28px;
+        padding-bottom: 8px;
+    }
+
+    .values-list,
+    .goals-list {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+        gap: 15px;
+    }
+
+    .leader {
+        flex: 1 1 100%; /* Full width on smaller screens */
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px 10px;
+    }
+    .logo {
+        font-size: 20px;
+    }
+    .nav-links li a {
+        font-size: 15px;
+    }
+    header h1 {
+        font-size: 30px;
+    }
+    header p {
+        font-size: 16px;
+    }
+    .content {
+        padding: 20px 10px;
+    }
+    .section h2 {
+        font-size: 24px;
+    }
+}
